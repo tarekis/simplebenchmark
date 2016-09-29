@@ -1,0 +1,9 @@
+{
+  "name": "benchmark",
+  "version": "0.0.0",
+  "description": "Benchmark",
+  "main": "app.js",
+  "author": {
+    "name": "hic"
+  }
+}
