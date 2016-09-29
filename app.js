@@ -5,35 +5,30 @@ var tests = require('./test.js');
 var suite = new Benchmark.Suite('Test', {
 
    // called when the suite starts running
-   'onStart': function ()
-   {
+   'onStart': function () {
       console.log('-----------------------------------------------');
       console.log('Running Benchmarking Suite, please be patient.');
       console.log('');
    },
 
    // called between running benchmarks
-   'onCycle': function (event)
-   {
+   'onCycle': function (event) {
       console.log(String(event.target));
    },
 
    // called when aborted
-   'onAbort': function ()
-   {
+   'onAbort': function () {
       console.log('Abortet!');
    },
 
    // called when a test errors
-   'onError': function (err)
-   {
+   'onError': function (err) {
       console.log('An err occured:');
       console.log(err);
    },
 
    // called when the suite completes running
-   'onComplete': function ()
-   {
+   'onComplete': function () {
       console.log('');
       console.log('Benchmarking Run finished!');
       console.log('');
@@ -44,8 +39,7 @@ var suite = new Benchmark.Suite('Test', {
       var rl = readline.createInterface(process.stdin, process.stdout);
       rl.setPrompt('Press Enter to rerun.');
       rl.prompt();
-      rl.on('line', function (line)
-      {
+      rl.on('line', function (line) {
          rl.close();
          startSuite();
       })
@@ -53,8 +47,7 @@ var suite = new Benchmark.Suite('Test', {
 });
 
 var functionNames = Object.keys(tests);
-functionNames.forEach(function (functionName)
-{
+functionNames.forEach(function (functionName) {
    suite.add(functionName, tests[functionName])
 })
 
